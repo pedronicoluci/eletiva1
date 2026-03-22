@@ -24,12 +24,12 @@
         </form>
 
         <?php
-            if($_SERVER["REQUEST_METHOD"] == "POST") {
-                $alt = $_POST["alt"];
-                $larg = $_POST["larg"];
-                $area = $alt * $larg;
-                echo "<p>A área do retângulo é igual a: $area.</p>";
-            }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $alt = $_POST["alt"];
+            $larg = $_POST["larg"];
+            $area = $alt * $larg;
+            echo "<p>A área do retângulo é igual a: $area.</p>";
+        }
         ?>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
