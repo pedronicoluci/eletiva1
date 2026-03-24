@@ -25,6 +25,20 @@
       <button type="submit" class="btn btn-primary w-100">Entrar</button>
     </form>
 
+    <?php
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $email = $_POST["email"];
+        $senha = $_POST["senha"];
+        if($email == "adm@adm" && $senha == "123"){
+            header("Location: principal.php");
+        } else {
+            echo "<p class='text-danger'>Email e/ou senha incorretos!</p>";
+        }
+    }
+
+    ?>
+
     <div class="text-center mt-3">
       <small>Não tem conta? <a href="cadastro.html">Cadastre-se</a></small>
     </div>
