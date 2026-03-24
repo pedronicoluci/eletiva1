@@ -27,12 +27,16 @@
 
     <?php
 
+    session_start();
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $email = $_POST["email"];
         $senha = $_POST["senha"];
         if($email == "adm@adm" && $senha == "123"){
+            $_SESSION["nome"] = "Administrador";
+            $_SESSION["acesso"] = true;
             header("Location: principal.php");
         } else {
+            $_SESSION["acesso"] = false;
             echo "<p class='text-danger'>Email e/ou senha incorretos!</p>";
         }
     }
