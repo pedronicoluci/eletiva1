@@ -34,7 +34,7 @@
                 $periodo = $_POST["periodo"];
                 $juros_compostos = $capital * (1 + ($juros / 100) ** $periodo);
                 $montante = $capital + $juros_compostos;
-                echo "<p>$montante.</p>";
+                echo "<p>O montante com juros compostos sobre o capital inicial é de: R$$montante.</p>";
             }
         ?>
 
