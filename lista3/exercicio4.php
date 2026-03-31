@@ -12,7 +12,7 @@
 <form method="post">
 <div class="mb-3">
               <label for="valor" class="form-label">Digite o valor do produto:</label>
-              <input type="number" id="valor" name="valor" class="form-control" required="">
+              <input type="number" id="valor" name="valor" class="form-control" required="" step="any">
             </div>
 <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
