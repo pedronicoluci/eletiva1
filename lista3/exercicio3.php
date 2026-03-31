@@ -25,14 +25,14 @@
         $numero1 = $_POST["numero1"];
         $numero2 = $_POST["numero2"];
 
-        if ($numero1 == $numero2) {
-            echo "<p>$numero1</p>";
-        }
+        if ($numero1 > $numero2)
+            echo "<p>$numero2 $numero1</p>";
 
-        if () {
+        elseif ($numero1 < $numero2)
+          echo "<p>$numero1 $numero2</p>";
 
-        }
-            echo"<p>
+        else
+          echo "<p>Números iguais: $numero1.</p>";
     }
 ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
