@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     for($i=0;$i<5;$i++){
         if(!isset($mapa[$contato[$i]]) && !in_array($numero[$i], $mapa)){
             $mapa[$contato[$i]] = $numero[$i];
-            echo "<pre>".($i+1).". Nome: ".$contato[$i]."\nNúmero: ".$numero[$i]."</pre>";
+            echo "<pre>".($i+1).". Nome: ".$contato[$i]."\n   Número: ".$numero[$i]."</pre>";
         } else {
             echo "<pre>".($i+1).". Nome '".$contato[$i]."' ou número '".$numero[$i]."' já cadastrados.</pre>";
         }
