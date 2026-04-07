@@ -50,7 +50,7 @@
             foreach ($mapa as $chave => $valor) {
                 if ($valor[1] > 100)
                     $valor[1] = $valor[1] * 0.9;
-                echo "<pre>Cod: " . $chave . " \tProduto: " . $valor[0] . "\tPreço: " . $valor[1] . "\n--------------------------------------------------</pre>";
+                echo "<pre>Cod: " . $chave . " \tProduto: " . $valor[0] . "\tPreço: R$" . $valor[1] . "\n--------------------------------------------------</pre>";
             }
         }
         ?>

@@ -50,7 +50,7 @@
             arsort($mapa);
             echo "<p>Média das notas em ordem descrescente: </p>";
             foreach ($mapa as $chave => $valor) {
-                echo "<pre>Aluno: $chave \tMédia: $valor \n------------------------------</pre>";
+                echo "<pre>Aluno: $chave \tMédia: R$$valor \n------------------------------</pre>";
             }
 
             echo "<p></p>";
