@@ -38,7 +38,7 @@
 </div>
 
 <form method="post">
-    <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+    <button type="submit" class="btn btn-danger">Excluir</button>
     <a href="cargos.php" class="btn btn-secondary">Voltar</a>
 </form>
 
