@@ -26,35 +26,37 @@
     </form>
 
     <?php
-
     require_once('conexao.php');
     session_start();
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $email = $_POST["email"];
         $senha = $_POST["senha"];
-        try {
-          $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = ?");
-          $stmt->execute([$email]);
-          $usuario = $stmt->fetch();
-          var_dump($usuario);
-        } catch(Exception $e) {
-          echo "Erro: " . $e->getMessage();
-        }
 
-        if($email == "adm@adm" && $senha == "123"){
-            $_SESSION["nome"] = "Administrador";
-            $_SESSION["acesso"] = true;
-            header("Location: principal.php");
-        } else {
-            $_SESSION["acesso"] = false;
-            echo "<p class='text-danger'>Email e/ou senha incorretos!</p>";
+        try {
+          // Lógica dinâmica: Buscando o usuário direto na tabela 'usuarios' do banco
+          $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = ? AND senha = ?");
+          $stmt->execute([$email, $senha]);
+          $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+          if($usuario) {
+              $_SESSION["nome"] = $usuario["nome"];
+              $_SESSION["acesso"] = true;
+              header("Location: principal.php");
+              exit();
+          } else {
+              $_SESSION["acesso"] = false;
+              echo "<p class='text-danger text-center mt-3'>E-mail e/ou senha incorretos!</p>";
+          }
+
+        } catch(Exception $e) {
+          echo "<p class='text-danger text-center mt-3'>Erro no sistema: " . $e->getMessage() . "</p>";
         }
     }
-
     ?>
 
     <div class="text-center mt-3">
-      <small>Não tem conta? <a href="cadastro.html">Cadastre-se</a></small>
+      <small>Não tem conta? <a href="#">Cadastre-se</a></small>
     </div>
   </div>
 

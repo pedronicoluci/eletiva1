@@ -10,13 +10,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sistema</title>
+<title>Sistema de Associação</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
   <div class="container">
-    <a class="navbar-brand" href="#">Sistema</a>
+    <a class="navbar-brand" href="principal.php">Associação</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Alternar navegação">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,20 +29,21 @@
 
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" id="dropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Funções Básicas
+    Gerenciamento
   </a>
   <ul class="dropdown-menu" aria-labelledby="dropdown2">
-    <li><a class="dropdown-item" href="categorias.php">Categorias</a></li>
-<li><a class="dropdown-item" href="produtos.php">Produtos</a></li>
+    <li><a class="dropdown-item" href="cargos.php">Cargos</a></li>
+    <li><a class="dropdown-item" href="membros.php">Membros</a></li>
+    <li><a class="dropdown-item" href="atividades.php">Atividades / Participações</a></li>
   </ul>
 </li>
 
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" id="dropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Funções de Saída
+    Relatórios
   </a>
   <ul class="dropdown-menu" aria-labelledby="dropdown3">
-    <li><a class="dropdown-item" href="#">Relatório de Produtos</a></li>
+    <li><a class="dropdown-item" href="#">Relatório de Membros por Cargo</a></li>
   </ul>
 </li>
 
@@ -50,7 +51,10 @@
   <a class="nav-link" aria-current="page" href="logout.php">Sair</a>
 </li>
       </ul>
+      <span class="navbar-text text-white me-3">
+         Olá, <strong><?= $_SESSION["nome"] ?></strong>!
+      </span>
     </div>
   </div>
 </nav>
-<div class="container py-3">
+<div class="container py-4">
