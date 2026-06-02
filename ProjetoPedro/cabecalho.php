@@ -43,8 +43,9 @@
     Relatórios
   </a>
   <ul class="dropdown-menu" aria-labelledby="dropdown3">
-    <li><a class="dropdown-item" href="#">Relatório de Membros por Cargo</a></li>
-  </ul>
+    <li><a class="dropdown-item" href="relatorio.php">Relatório de Membros por Cargo</a></li>
+    <li><a class="dropdown-item" href="relatorio_participacao.php">Relatório de Presença / Engajamento</a></li>
+</ul>
 </li>
 
 <li class="nav-item">

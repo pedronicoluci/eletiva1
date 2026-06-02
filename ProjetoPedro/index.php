@@ -56,7 +56,7 @@
     ?>
 
     <div class="text-center mt-3">
-      <small>Não tem conta? <a href="#">Cadastre-se</a></small>
+      <small>Não tem conta? <a href="cadastro.php">Cadastre-se</a></small>
     </div>
   </div>
 
