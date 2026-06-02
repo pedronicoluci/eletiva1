@@ -19,7 +19,7 @@
 <div class="card p-4 shadow-sm">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>📊 Relatório: Quantidade de Membros por Cargo</h2>
-        <button onclick="window.print()" class="btn btn-outline-secondary d-print-none">🖨️ Imprimir Relatório</button>
+        <button onclick="window.print()" class="btn btn-outline-secondary d-print-none">🖨️ Imprimir</button>
     </div>
     
     <p class="text-muted d-print-none">Este relatório apresenta uma visão analítica da associação, exibindo o total de membros vinculados a cada cargo cadastrado no sistema.</p>
@@ -56,6 +56,10 @@
             <?php endif; ?>
         </tbody>
     </table>
+
+    <div class="mt-3 d-print-none">
+        <a href="principal.php" class="btn btn-secondary">Voltar ao Início</a>
+    </div>
 </div>
 
 <?php
