@@ -6,7 +6,6 @@
         $id = $_GET['id'];
 
         try {
-            // Correção: Adicionado o $ na variável id
             $stmt = $pdo->prepare("DELETE FROM cargos WHERE id = ?");
             $stmt->execute([$id]);
             header("Location: cargos.php");

@@ -2,7 +2,6 @@
     require_once("cabecalho.php");
     require_once("conexao.php");
 
-    // LÓGICA 1: Processa o cadastro de uma nova atividade se o formulário for enviado
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cadastrar'])) {
         $nome = $_POST['nome'];
         $data_atividade = $_POST['data_atividade'];
@@ -16,7 +15,6 @@
         }
     }
 
-    // LÓGICA 2: Busca todas as atividades cadastradas
     try {
         $stmt = $pdo->query("SELECT * FROM atividades ORDER BY data_atividade DESC");
         $atividades = $stmt->fetchAll(PDO::FETCH_ASSOC);
