@@ -2,7 +2,6 @@
     require_once("cabecalho.php");
     require_once("conexao.php");
 
-    // 1. Busca os cargos disponíveis para listar no <select>
     try {
         $stmtCargos = $pdo->query("SELECT id, nome FROM cargos");
         $cargos = $stmtCargos->fetchAll(PDO::FETCH_ASSOC);
@@ -10,7 +9,6 @@
         die("Erro ao carregar cargos: " . $e->getMessage());
     }
 
-    // 2. Processa o formulário ao enviar
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nome = $_POST["nome"];
         $email = $_POST["email"];
@@ -39,9 +37,9 @@
         <input type="email" id="email" name="email" class="form-control" required>
     </div>
     <div class="mb-3">
-        <label for="cargo_id" class="form-label">Cargo na Associação:</label>
+        <label for="cargo_id" class="form-label">Patente:</label>
         <select id="cargo_id" name="cargo_id" class="form-select" required>
-            <option value="">-- Selecione um Cargo --</option>
+            <option value="">-- Selecione uma Patente --</option>
             <?php foreach ($cargos as $cargo): ?>
                 <option value="<?= $cargo['id'] ?>"><?= $cargo['nome'] ?></option>
             <?php endforeach; ?>

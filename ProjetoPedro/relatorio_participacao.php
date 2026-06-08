@@ -3,7 +3,6 @@
     require_once("conexao.php");
 
     try {
-        // SQL Avançado: Une membros, cargos e conta as presenças confirmadas na tabela participações
         $query = "SELECT membros.nome AS nome_membro, cargos.nome AS nome_cargo, COUNT(participacoes.id) AS total_presencas
                   FROM membros
                   INNER JOIN cargos ON membros.cargo_id = cargos.id
@@ -31,7 +30,7 @@
         <thead class="table-dark">
             <tr>
                 <th>Nome do Membro</th>
-                <th>Cargo / Função</th>
+                <th>Patente</th>
                 <th class="text-center" style="width: 220px;">Atividades Frequentadas</th>
                 <th class="text-center" style="width: 180px;">Status de Engajamento</th>
             </tr>

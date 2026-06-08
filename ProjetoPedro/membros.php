@@ -3,7 +3,6 @@
     require_once("conexao.php");
 
     try {
-        // Buscamos os membros juntando com a tabela de cargos para exibir o nome do cargo
         $query = "SELECT membros.id, membros.nome, membros.email, cargos.nome AS nome_cargo 
                   FROM membros 
                   INNER JOIN cargos ON membros.cargo_id = cargos.id";
@@ -15,7 +14,7 @@
     }
 ?>
 
-<h2>Membros da Associação</h2>
+<h2>Membros do M.C.</h2>
 <a href="novo_membro.php" class="btn btn-success mb-3">Novo Membro</a>
 
 <table class="table table-hover table-striped">
@@ -36,9 +35,10 @@
                     <td><?= $membro['nome'] ?></td>
                     <td><?= $membro['email'] ?></td>
                     <td><span class="badge bg-primary"><?= $membro['nome_cargo'] ?></span></td>
-                    <td>
+                    <td class="d-flex gap-2">
                         <a href="alterar_membro.php?id=<?= $membro['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
                         <a href="consultar_membro.php?id=<?= $membro['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
+                        <a href="excluir_membro.php?id=<?= $membro['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Deseja mesmo remover este membro da associação?');">Excluir</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

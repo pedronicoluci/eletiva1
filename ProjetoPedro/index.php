@@ -3,26 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login</title>
+  <title>SURICATOS M.C. - Login</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+      body {
+          background-color: #121214;
+          color: #ffffff;
+      }
+      .login-card {
+          background-color: #1e1e24;
+          border: 1px solid #ffc107;
+          border-radius: 8px;
+      }
+      .form-control {
+          background-color: #2b2b36;
+          border: 1px solid #444;
+          color: #fff;
+      }
+      .form-control:focus {
+          background-color: #2b2b36;
+          border-color: #ffc107;
+          color: #fff;
+          box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+      }
+      .form-control::placeholder {
+          color: #a0a0a5 !important;
+          opacity: 1;
+      }
+  </style>
 </head>
-<body class="bg-light d-flex align-items-center justify-content-center vh-100">
+<body class="d-flex align-items-center justify-content-center vh-100">
 
-  <div class="card p-4 shadow" style="width: 100%; max-width: 400px;">
-    <h3 class="text-center mb-4">Sistema de Cadastro de Membros de Associação</h3>
+  <div class="card p-4 shadow login-card" style="width: 100%; max-width: 400px;">
+    <h3 class="text-center text-warning mb-2">SURICATOS M.C.</h3>
+    <h6 class="text-center text-white mb-4">Gestão de Integrantes & Comboios</h6>
 
-    <form method = "post">
+    <form method="post">
       <div class="mb-3">
-        <label class="form-label">E-mail</label>
-        <input name="email" type="email" class="form-control" placeholder="Digite seu e-mail:" required>
+        <label class="form-label text-secondary">E-mail</label>
+        <input name="email" type="email" class="form-control" placeholder="usuario@clube.com" required>
       </div>
 
       <div class="mb-3">
-        <label class="form-label">Senha</label>
-        <input name="senha" type="password" class="form-control" placeholder="Digite sua senha:" required>
+        <label class="form-label text-secondary">Senha</label>
+        <input name="senha" type="password" class="form-control" placeholder="••••••••" required>
       </div>
 
-      <button type="submit" class="btn btn-primary w-100">ENTRAR</button>
+      <button type="submit" class="btn btn-warning w-100 fw-bold">ENTRAR</button>
     </form>
 
     <?php
@@ -34,7 +61,6 @@
         $senha = $_POST["senha"];
 
         try {
-          // Lógica dinâmica: Buscando o usuário direto na tabela 'usuarios' do banco
           $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = ? AND senha = ?");
           $stmt->execute([$email, $senha]);
           $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -56,7 +82,7 @@
     ?>
 
     <div class="text-center mt-3">
-      <small>Não tem conta? <a href="cadastro.php">Cadastre-se</a></small>
+      <small class="text-secondary">Não tem conta? <a href="cadastro.php" class="text-warning text-decoration-underline">Cadastre-se</a></small>
     </div>
   </div>
 

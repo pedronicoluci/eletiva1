@@ -2,7 +2,6 @@
     require_once("cabecalho.php");
     require_once("conexao.php");
 
-    // LÓGICA: Busca todos os cargos cadastrados
     try {
         $stmt = $pdo->query("SELECT * FROM cargos");
         $cargos = $stmt->fetchAll();
@@ -11,8 +10,8 @@
     }
 ?>
 
-<h2>Cargos da Associação</h2>
-<a href="novo_cargo.php" class="btn btn-success mb-3">Novo Registro</a>
+<h2>Patentes</h2>
+<a href="novo_cargo.php" class="btn btn-success mb-3">Nova Patente</a>
 
 <table class="table table-hover table-striped">
     <thead>
@@ -24,17 +23,24 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($cargos as $cargo): ?>
+        <?php if (count($cargos) > 0): ?>
+            <?php foreach ($cargos as $cargo): ?>
+                <tr>
+                    <td><?= $cargo['id'] ?></td>
+                    <td><?= $cargo['nome'] ?></td>
+                    <td><?= $cargo['descricao'] ?></td>
+                    <td class="d-flex gap-2">
+                        <a href="alterar_cargo.php?id=<?= $cargo['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="consultar_cargo.php?id=<?= $cargo['id'] ?>" class="btn btn-sm btn-info">Consultar</a>
+                        <a href="excluir_cargo.php?id=<?= $cargo['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir este cargo?');">Excluir</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
             <tr>
-                <td><?= $cargo['id'] ?></td>
-                <td><?= $cargo['nome'] ?></td>
-                <td><?= $cargo['descricao'] ?></td>
-                <td class="d-flex gap-2">
-                    <a href="alterar_cargo.php?id=<?= $cargo['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
-                    <a href="consultar_cargo.php?id=<?= $cargo['id'] ?>" class="btn btn-sm btn-info">Consultar/Excluir</a>
-                </td>
+                <td colspan="5" class="text-center">Nenhuma patente cadastrada ainda.</td>
             </tr>
-        <?php endforeach; ?>
+        <?php endif; ?>
     </tbody>
 </table>
 

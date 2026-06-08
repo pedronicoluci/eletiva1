@@ -8,13 +8,11 @@
     }
     $atividade_id = $_GET['atividade_id'];
 
-    // 1. Busca os detalhes da atividade atual
     $stmtAtiv = $pdo->prepare("SELECT * FROM atividades WHERE id = ?");
     $stmtAtiv->execute([$atividade_id]);
     $atividade = $stmtAtiv->fetch(PDO::FETCH_ASSOC);
     if (!$atividade) { die("Atividade não encontrada!"); }
 
-    // LÓGICA: Vincula um novo participante à atividade
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['adicionar_membro'])) {
         $membro_id = $_POST['membro_id'];
         try {
@@ -25,10 +23,8 @@
         }
     }
 
-    // 2. Busca todos os membros para preencher o <select>
     $membrosDisponiveis = $pdo->query("SELECT id, nome FROM membros ORDER BY nome ASC")->fetchAll(PDO::FETCH_ASSOC);
 
-    // 3. Busca quem já teve a presença confirmada nesta atividade específica (INNER JOIN triplo)
     $queryPresenca = "SELECT participacoes.id AS part_id, membros.nome, membros.email, cargos.nome AS cargo 
                       FROM participacoes
                       INNER JOIN membros ON participacoes.membro_id = membros.id
@@ -65,13 +61,13 @@
 
     <div class="col-md-7">
         <div class="card p-3 shadow-sm">
-            <h5>Membros Presentes Registrados</h5>
+            <h5>Membros Presentes</h5>
             <table class="table table-striped align-middle">
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>Cargo</th>
-                        <th>Ação</th>
+                        <th>Patente</th>
+                        <th>Remover Presença?</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,7 +78,7 @@
                                 <td><span class="badge bg-secondary"><?= $p['cargo'] ?></span></td>
                                 <td>
                                     <a href="remover_presenca.php?id=<?= $p['part_id'] ?>&atividade_id=<?= $atividade_id ?>" class="btn btn-sm btn-danger">
-                                        Retirar
+                                        Remover
                                     </a>
                                 </td>
                             </tr>

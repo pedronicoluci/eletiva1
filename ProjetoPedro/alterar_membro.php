@@ -8,7 +8,6 @@
     }
     $id = $_GET['id'];
 
-    // 1. Busca os dados do membro e a lista de cargos
     try {
         $stmtMembro = $pdo->prepare("SELECT * FROM membros WHERE id = ?");
         $stmtMembro->execute([$id]);
@@ -22,7 +21,6 @@
         die("Erro: " . $e->getMessage());
     }
 
-    // 2. Processa a alteração
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nome = $_POST["nome"];
         $email = $_POST["email"];

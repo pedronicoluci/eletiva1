@@ -68,8 +68,9 @@
                                     <a href="participacoes.php?atividade_id=<?= $ativ['id'] ?>" class="btn btn-sm btn-info text-white">
                                         👥 Lista de Presença
                                     </a>
-                                    <a href="excluir_atividade.php?id=<?= $ativ['id'] ?>" class="btn btn-sm btn-outline-danger">
-                                        Excluir
+                                    <!--<a href="excluir_atividade.php?id=<?= $ativ['id'] ?>" class="btn btn-sm btn-outline-danger">-->
+                                        <a href="excluir_atividade.php?id=<?= $ativ['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta atividade?');">Excluir</a>
+                                        <!--Excluir-->
                                     </a>
                                 </td>
                             </tr>

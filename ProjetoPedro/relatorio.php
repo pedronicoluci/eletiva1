@@ -3,7 +3,6 @@
     require_once("conexao.php");
 
     try {
-        // SQL Avançado: Conta quantos membros existem em cada cargo agrupando os dados
         $query = "SELECT cargos.nome AS nome_cargo, COUNT(membros.id) AS total_membros 
                   FROM cargos 
                   LEFT JOIN membros ON cargos.id = membros.cargo_id 
@@ -18,16 +17,16 @@
 
 <div class="card p-4 shadow-sm">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>📊 Relatório: Quantidade de Membros por Cargo</h2>
-        <button onclick="window.print()" class="btn btn-outline-secondary d-print-none">🖨️ Imprimir Relatório</button>
+        <h2>📊 Relatório: Quantidade de Membros por Patente</h2>
+        <button onclick="window.print()" class="btn btn-outline-secondary d-print-none">🖨️ Imprimir</button>
     </div>
     
-    <p class="text-muted d-print-none">Este relatório apresenta uma visão analítica da associação, exibindo o total de membros vinculados a cada cargo cadastrado no sistema.</p>
+    <p class="text-muted d-print-none">Este relatório apresenta uma visão analítica da associação, exibindo o total de membros vinculados a cada patente cadastrado no sistema.</p>
 
     <table class="table table-bordered table-striped mt-3">
         <thead class="table-dark">
             <tr>
-                <th>Cargo / Função</th>
+                <th>Patente</th>
                 <th class="text-center" style="width: 200px;">Total de Membros Alocados</th>
             </tr>
         </thead>
@@ -46,7 +45,7 @@
                     <?php $gran_total += $linha['total_membros']; ?>
                 <?php endforeach; ?>
                 <tr class="table-group-divider">
-                    <td><h5><strong>Total Geral de Associados</strong></h5></td>
+                    <td><h5><strong>Total Geral de Membros Escudados</strong></h5></td>
                     <td class="text-center"><h5><strong><span class="badge bg-success fs-5"><?= $gran_total ?></span></strong></h5></td>
                 </tr>
             <?php else: ?>
@@ -56,6 +55,10 @@
             <?php endif; ?>
         </tbody>
     </table>
+
+    <div class="mt-3 d-print-none">
+        <a href="principal.php" class="btn btn-secondary">Voltar ao Início</a>
+    </div>
 </div>
 
 <?php

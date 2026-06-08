@@ -2,7 +2,6 @@
     require_once("cabecalho.php");
     require_once("conexao.php");
 
-    // LÓGICA: Captura o ID vindo da URL e busca os dados atuais
     if (!isset($_GET['id'])) {
         header("Location: cargos.php");
         exit();
@@ -21,7 +20,6 @@
         die("Erro: " . $e->getMessage());
     }
 
-    // LÓGICA: Processa a alteração quando o formulário é submetido
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nome = $_POST["nome"];
         $descricao = $_POST["descricao"];
@@ -37,10 +35,10 @@
     }
 ?>
 
-<h1>Alterar Cargo</h1>
+<h1>Editar Patente</h1>
 <form method="post">
     <div class="mb-3">
-        <label for="nome" class="form-label">Nome do Cargo:</label>
+        <label for="nome" class="form-label">Nome da Patente:</label>
         <input type="text" id="nome" name="nome" class="form-control" value="<?= $cargo['nome'] ?>" required>
     </div>
     <div class="mb-3">
